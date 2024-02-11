@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purwatole Youth Group Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #ff0000; /* Red */
+            color: #ffffff; /* White */
+            font-size: 24px;
+            font-weight: bold;
+            border-bottom: 2px solid #990000; /* Darker red */
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            border: 1px solid #ff0000; /* Red */
+            border-radius: 5px;
+            background-color: #ffffff;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff0000; /* Red */
+        }
+
+        label {
+            margin-bottom: 10px;
+            color: #333333;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="file"],
+        input[type="submit"] {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #ff0000; /* Red */
+            color: #ffffff; /* White */
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #990000; /* Darker red */
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Purwatole Youth Group</h1>
+</header>
+
+<div class="container">
+    <form action="insert_data.php" method="post" enctype="multipart/form-data">
+        <h2>Member Details</h2>
+
+        <!-- Personal Information -->
+        <fieldset class="personal-info">
+            <legend>Personal Information</legend>
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName" id="firstName" placeholder="Enter your first name" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="lastName" id="lastName" placeholder="Enter your last name" required>
+
+            <label for="address">Address:</label>
+            <input type="text" name="address" id="address" placeholder="Enter your address" required>
+        </fieldset>
+
+        <!-- Contact Details -->
+        <fieldset class="contact-info">
+            <legend>Contact Details</legend>
+            <label for="phone">Phone:</label>
+            <input type="tel" name="phone" id="phone" placeholder="Enter your phone number" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" placeholder="Enter your email address" required>
+        </fieldset>
+
+        <!-- Parent Information -->
+        <fieldset class="parent-info">
+            <legend>Parent Information</legend>
+            <label for="fatherName">Father's Name:</label>
+            <input type="text" name="fatherName" id="fatherName" placeholder="Enter your father's name" required>
+
+            <label for="motherName">Mother's Name:</label>
+            <input type="text" name="motherName" id="motherName" placeholder="Enter your mother's name" required>
+        </fieldset>
+
+        <!-- Citizenship Number -->
+        <fieldset class="citizenship-info">
+            <legend>Citizenship Information</legend>
+            <label for="citizenshipNumber">Citizenship Number:</label>
+            <input type="text" name="citizenshipNumber" id="citizenshipNumber" placeholder="Enter your citizenship number" required>
+        </fieldset>
+
+        <!-- Profile Picture -->
+        <fieldset class="profile-pic">
+            <legend>Profile Picture</legend>
+            <label for="profilePic">Upload Profile Picture:</label>
+            <input type="file" name="profilePic" id="profilePic" accept="image/*" required>
+        </fieldset>
+
+        <input type="submit" value="Register">
+    </form>
+</div>
+<script>
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+        var citizenshipNumber = document.getElementById("citizenshipNumber").value;
+        var phone = document.getElementById("phone").value;
+
+        if (citizenshipNumber.length < 6) {
+            alert("Citizenship number must be at least 6 digits long.");
+            event.preventDefault();
+        }
+
+        if (phone.length < 9) {
+            alert("Phone number must be at least 9 digits long.");
+            event.preventDefault();
+        }
+    });   
+</script>
+
+</body>
+</html>
